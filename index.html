@@ -238,31 +238,71 @@
         }
         .map-link:hover { color: var(--green-dark); }
 
-        /* Gift & Dress guide */
-        .guide-block {
-            background: white; border-radius: 18px;
-            padding: 22px; margin: 20px 0;
+        /* Gift Guide - Redesigned */
+        .gift-guide {
+            background: white; border-radius: 20px;
+            padding: 25px 20px; margin: 20px 0;
             border: 2px solid var(--green-light);
             box-shadow: 0 3px 12px rgba(0,0,0,0.04);
         }
-        .guide-block h3 {
+        .gift-guide h3 {
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.15rem; color: var(--green-dark);
-            margin-bottom: 10px; text-align: center;
+            font-size: 1.3rem; color: var(--green-dark);
+            margin-bottom: 8px; text-align: center;
         }
-        .guide-block p {
-            font-size: 0.9rem; color: var(--text-light);
-            line-height: 1.7; text-align: center; margin: 8px 0;
+        .gift-guide .intro {
+            font-size: 0.88rem; color: var(--text-light);
+            line-height: 1.7; text-align: center; margin: 8px 0 20px;
         }
-        .guide-block .highlight {
-            background: var(--orange-light); border-radius: 8px;
-            padding: 10px 15px; margin: 10px 0;
-            font-weight: 500; color: var(--text);
-            text-align: center; font-size: 0.9rem;
+        .gift-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 12px; margin: 15px 0;
         }
-        .guide-block .note {
+        .gift-card {
+            background: var(--green-pale);
+            border: 2px solid var(--green-light);
+            border-radius: 16px; padding: 18px 12px;
+            text-align: center; transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .gift-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(46,125,50,0.12);
+        }
+        .gift-card.monetary {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #fff9c4, var(--orange-light));
+            border-color: var(--orange);
+        }
+        .gift-card .gift-icon {
+            font-size: 2.5rem; margin-bottom: 8px;
+            display: block;
+        }
+        .gift-card .gift-img {
+            width: 80px; height: 80px; object-fit: contain;
+            margin-bottom: 8px; border-radius: 10px;
+        }
+        .gift-card .gift-name {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 0.85rem; color: var(--text);
+            font-weight: 500; line-height: 1.3;
+        }
+        .gift-card .gift-tag {
+            display: inline-block; margin-top: 6px;
+            font-size: 0.65rem; color: var(--green-dark);
+            background: rgba(76,175,80,0.15); padding: 2px 8px;
+            border-radius: 10px; font-weight: 600;
+        }
+        .gift-card.monetary .gift-tag {
+            background: rgba(255,152,0,0.2); color: #e65100;
+        }
+        .gift-guide .note {
             font-size: 0.8rem; color: #999; font-style: italic;
-            text-align: center; margin-top: 8px;
+            text-align: center; margin-top: 18px;
+        }
+        @media (max-width: 400px) {
+            .gift-grid { grid-template-columns: 1fr; }
+            .gift-card.monetary { grid-column: auto; }
         }
 
 
@@ -370,22 +410,37 @@
             <div class="carousel-section">
                 <div class="carousel-wrapper" id="carousel">
                     <div class="slide active">
+                        <img src="images/ETHAN-5.JPG" alt="Baby Ethan">
+                    </div>
+                    <div class="slide">
                         <img src="images/ETHAN-28.JPG" alt="Baby Ethan">
                     </div>
                     <div class="slide">
                         <img src="images/ETHAN-47.JPG" alt="Baby Ethan">
                     </div>
                     <div class="slide">
+                        <img src="images/ETHAN-56.JPG" alt="Baby Ethan">
+                    </div>
+                    <div class="slide">
                         <img src="images/ETHAN-69.JPG" alt="Baby Ethan">
+                    </div>
+                    <div class="slide">
+                        <img src="images/ETHAN-103.JPG" alt="Baby Ethan">
+                    </div>
+                    <div class="slide">
+                        <img src="images/ETHAN-113.JPG" alt="Baby Ethan">
                     </div>
                     <div class="slide">
                         <img src="images/ETHAN-114.JPG" alt="Baby Ethan">
                     </div>
                     <div class="slide">
+                        <img src="images/ETHAN-134.JPG" alt="Baby Ethan">
+                    </div>
+                    <div class="slide">
                         <img src="images/ETHAN-140.JPG" alt="Baby Ethan">
                     </div>
                     <div class="slide">
-                        <img src="images/ETHAN-148.JPG" alt="Baby Ethan">
+                        <img src="images/ETHAN-164.JPG" alt="Baby Ethan">
                     </div>
                     <!-- Nav arrows -->
                     <div class="carousel-nav prev" onclick="changeSlide(-1)">&#10094;</div>
@@ -399,6 +454,11 @@
                     <span class="dot" onclick="goToSlide(3)"></span>
                     <span class="dot" onclick="goToSlide(4)"></span>
                     <span class="dot" onclick="goToSlide(5)"></span>
+                    <span class="dot" onclick="goToSlide(6)"></span>
+                    <span class="dot" onclick="goToSlide(7)"></span>
+                    <span class="dot" onclick="goToSlide(8)"></span>
+                    <span class="dot" onclick="goToSlide(9)"></span>
+                    <span class="dot" onclick="goToSlide(10)"></span>
                 </div>
                 <div class="carousel-caption" id="carousel-caption">Ethan's journey to ONE &#129430;</div>
             </div>
@@ -436,12 +496,60 @@
             </div>
 
             <!-- Gift Guide -->
-            <div class="guide-block">
+            <div class="gift-guide">
                 <h3>&#127873; Gift Guide</h3>
-                <p>Your presence is the greatest gift of all. But if you wish to give nonetheless, here's a little guide:</p>
-                <div class="highlight">&#128176; Option 1 Monetary gifts for Ethan's savings</div>
-                <div class="highlight">&#128176; Option 2 Monetary gifts for Ethan's savings</div>
-                <div class="highlight">&#128176; Option 3 Monetary gifts for Ethan's savings</div>
+                <p class="intro">Your presence is the greatest gift of all! But if you wish to give nonetheless, here's a little guide:</p>
+
+                <div class="gift-grid">
+                    <!-- Monetary - full width -->
+                    <div class="gift-card monetary">
+                        <span class="gift-icon">&#128176;</span>
+                        <span class="gift-name">Monetary Gift</span>
+                        <span class="gift-tag">For Ethan's savings</span>
+                    </div>
+
+                    <div class="gift-card">
+                        <img class="gift-img" src="images/rascal.jpg" alt="Rascals Diaper Pants">
+                        <span class="gift-name">Rascals Diaper Pants - XL</span>
+                        <span class="gift-tag">Baby essential</span>
+                    </div>
+
+                    <div class="gift-card">
+                        <img class="gift-img" src="images/unilove_diaper.webp" alt="Unilove Airpro Baby Diaper">
+                        <span class="gift-name">Unilove Airpro Baby Diaper - XL</span>
+                        <span class="gift-tag">Baby essential</span>
+                    </div>  
+
+                   
+               
+
+                    <div class="gift-card">
+                        <img class="gift-img" src="images/mustela.jpg" alt="Mustela No Rinse Cleansing Water">
+                        <span class="gift-name">Mustela No Rinse Cleansing Water</span>
+                        <span class="gift-tag">Skincare</span>
+                    </div>
+
+                    <div class="gift-card">
+                        <img class="gift-img" src="images/cetaphil.avif" alt="Cetaphil Baby Gentle Wash & Shampoo">
+                        <span class="gift-name">Cetaphil Baby Gentle Wash &amp; Shampoo</span>
+                        <span class="gift-tag">Skincare</span>
+                    </div>
+
+                     <div class="gift-card">
+                        <img class="gift-img" src="images/unillove_detergent.jpg" alt="Unilove Laundry Detergent">
+                        <span class="gift-name">Unilove Laundry Detergent</span>
+                        <span class="gift-tag">Baby essential</span>
+                    </div>
+
+                    <div class="gift-card">
+                        <img class="gift-img" src="images/building_blocks.jpg" alt="Magnetic Building Blocks">
+                        <span class="gift-name">Magnetic Building Blocks</span>
+                        <span class="gift-tag">Toy</span>
+                    </div>
+
+                    
+                </div>
+
                 <p class="note">Just because we give you ideas doesn't mean you are obliged to give. &#128155;</p>
             </div>
 
@@ -478,6 +586,10 @@
             </div>
 
             <p class="closing-msg">We can't wait to see you there! &#129395;</p>
+
+            <div style="text-align:center; margin: 15px 0;">
+                <img src="images/ETHAN-150.JPG" alt="Baby Ethan" style="width:100%; max-width:320px; border-radius:18px; border:4px solid var(--green-light); box-shadow: 0 6px 20px rgba(46,125,50,0.15);">
+            </div>
 
             <div class="fun-footer">
                 No fossils allowed — just good times and cake! <span class="emoji">&#127874;</span>
@@ -560,7 +672,7 @@
         var currentSlide = 0;
         var slides = document.querySelectorAll('#carousel .slide');
         var dots = document.querySelectorAll('#carousel-dots .dot');
-        var captions = ["Ethan's journey begins \u{1F476}", "Growing so fast! \u{1F331}", "Little explorer \u{1F996}", "Our little dino! \u{1F995}", "So much joy! \u{1F49B}", "Almost ONE! \u{1F382}"];
+        var captions = ["Ethan's journey begins \u{1F476}", "Hello world! \u{1F30D}", "Growing so fast! \u{1F331}", "Little cutie \u{1F49B}", "Little explorer \u{1F996}", "So adorable! \u{1F60D}", "Our little dino! \u{1F995}", "Happy baby! \u{1F389}", "Adventure time! \u{1F30F}", "So much joy! \u{2728}", "Almost ONE! \u{1F382}"];
         var autoSlideTimer;
 
         function goToSlide(index) {
